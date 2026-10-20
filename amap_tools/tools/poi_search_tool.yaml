@@ -1,0 +1,81 @@
+identity:
+  name: poi_search
+  author: ellan1989
+  label:
+    en_US: POI Search
+    zh_Hans: POI 关键词搜索
+description:
+  human:
+    en_US: >-
+      Search points of interest in China by keyword (e.g. a shop, landmark or
+      brand) via the Amap Web Service API; optionally limited to one city.
+    zh_Hans: >-
+      通过高德 Web 服务 API 按关键词搜索国内的兴趣点（门店、地标、品牌等），
+      可限定城市。
+  llm: >-
+    Search points of interest (POIs) in China by keyword, such as stores,
+    landmarks or brand outlets. Input a keyword and optionally a city;
+    returns name, category, address, coordinates and phone for each match.
+parameters:
+  - name: keywords
+    type: string
+    required: true
+    label:
+      en_US: Keywords
+      zh_Hans: 关键词
+    placeholder:
+      en_US: "e.g. coffee shop, IKEA, railway station"
+      zh_Hans: 如 咖啡店、宜家、火车站
+    human_description:
+      en_US: Keyword(s) to search for.
+      zh_Hans: 搜索关键词。
+    llm_description: The keyword to search POIs for.
+    form: llm
+  - name: city
+    type: string
+    required: false
+    label:
+      en_US: City
+      zh_Hans: 城市
+    placeholder:
+      en_US: "e.g. Shanghai"
+      zh_Hans: 如 上海
+    human_description:
+      en_US: Optional city name to restrict the search to.
+      zh_Hans: 可选，限定搜索城市。
+    llm_description: Optional city name to restrict results to.
+    form: llm
+  - name: page_size
+    type: number
+    required: false
+    default: 10
+    label:
+      en_US: Results
+      zh_Hans: 返回数量
+    human_description:
+      en_US: Number of results to return, 1-25. Default 10.
+      zh_Hans: 返回条数 1-25，默认 10。
+    llm_description: Number of results to return (1-25), default 10.
+    form: llm
+  - name: page
+    type: number
+    required: false
+    default: 1
+    label:
+      en_US: Page
+      zh_Hans: 页码
+    human_description:
+      en_US: Page number starting from 1. Default 1.
+      zh_Hans: 页码，从 1 开始，默认 1。
+    llm_description: Page number starting from 1, default 1.
+    form: llm
+extra:
+  python:
+    source: tools/poi_search_tool.py
+output_schema:
+  count:
+    type: string
+    description: Total matches reported by the API.
+  pois:
+    type: array[json]
+    description: Matched POIs; each item has name, category, address, location, city and phone.

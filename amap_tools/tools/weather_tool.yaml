@@ -1,0 +1,58 @@
+identity:
+  name: weather
+  author: ellan1989
+  label:
+    en_US: City Weather
+    zh_Hans: 城市天气
+description:
+  human:
+    en_US: >-
+      Get current live weather for a Chinese city by adcode, using the Amap
+      Web Service API.
+    zh_Hans: >-
+      通过高德 Web 服务 API 按城市行政区划代码（adcode）查询实时天气。
+  llm: >-
+    Get current live weather for a Chinese city. Input the city adcode
+    (6-digit administrative code, e.g. 110000 for Beijing, 310000 for
+    Shanghai, 440100 for Guangzhou, 440300 for Shenzhen); returns weather
+    condition, temperature, wind and humidity.
+parameters:
+  - name: adcode
+    type: string
+    required: true
+    label:
+      en_US: City adcode
+      zh_Hans: 城市 adcode
+    placeholder:
+      en_US: "e.g. 110000 (Beijing)"
+      zh_Hans: 如 110000（北京）
+    human_description:
+      en_US: 6-digit city adcode. Beijing 110000, Shanghai 310000, Guangzhou 440100, Shenzhen 440300.
+      zh_Hans: 6 位行政区划代码。北京 110000、上海 310000、广州 440100、深圳 440300。
+    llm_description: 6-digit city adcode (Beijing 110000, Shanghai 310000, Guangzhou 440100, Shenzhen 440300).
+    form: llm
+extra:
+  python:
+    source: tools/weather_tool.py
+output_schema:
+  city:
+    type: string
+    description: City name.
+  weather:
+    type: string
+    description: Weather condition, e.g. Sunny / Cloudy / Rain.
+  temperature:
+    type: string
+    description: Temperature in Celsius.
+  winddirection:
+    type: string
+    description: Wind direction.
+  windpower:
+    type: string
+    description: Wind power level.
+  humidity:
+    type: string
+    description: Relative humidity in percent.
+  report_time:
+    type: string
+    description: Time the weather was reported.

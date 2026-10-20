@@ -1,0 +1,40 @@
+identity:
+  author: ellan1989
+  name: amap_tools
+  label:
+    en_US: Amap Tools
+    zh_Hans: 高德地图工具
+  description:
+    en_US: >-
+      China location tools based on the Amap (Gaode) Web Service API:
+      geocoding, reverse geocoding, POI keyword search and city weather.
+      Not officially affiliated with Amap; requires your own API key.
+    zh_Hans: >-
+      基于高德地图 Web 服务 API 的中国地理位置工具。非官方插件，
+      需使用你自己的高德 API key。
+  icon: icon.svg
+  tags:
+    - utilities
+    - productivity
+credentials_for_provider:
+  amap_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: Amap Web Service key
+      zh_Hans: 高德 Web 服务 key
+    placeholder:
+      en_US: Your Amap Web Service API key
+      zh_Hans: 你的高德 Web 服务 key
+    help:
+      en_US: >-
+        Sign up at https://lbs.amap.com, create an application and add a
+        "Web Service" key. The key is passed as the `key` query parameter on
+        every API call. Free tier available with daily quotas.
+      zh_Hans: >-
+        在 https://lbs.amap.com 注册，创建应用并添加「Web 服务」类型的 key。
+        key 以 key 查询参数发送，有免费日配额。
+    url: https://lbs.amap.com
+extra:
+  python:
+    source: provider/amap_tools.py

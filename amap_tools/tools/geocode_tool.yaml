@@ -1,0 +1,53 @@
+identity:
+  name: geocode
+  author: ellan1989
+  label:
+    en_US: Geocode Address
+    zh_Hans: 地理编码（地址转坐标）
+description:
+  human:
+    en_US: >-
+      Convert a Chinese address into coordinates (longitude, latitude) plus
+      province/city/district breakdown, using the Amap Web Service API.
+    zh_Hans: >-
+      通过高德 Web 服务 API 把中文地址转换为经纬度坐标，并返回省市区信息。
+  llm: >-
+    Convert a Chinese address to coordinates. Input a full or partial Chinese
+    address; returns matched results with longitude/latitude, province, city,
+    district and match precision level.
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: Address
+      zh_Hans: 地址
+    placeholder:
+      en_US: "e.g. No.1 Wangfujing Street, Beijing"
+      zh_Hans: 如 北京市东城区王府井大街1号
+    human_description:
+      en_US: A Chinese address to convert (full address gives the best precision).
+      zh_Hans: 要转换的中文地址（地址越完整精度越高）。
+    llm_description: The Chinese address to geocode.
+    form: llm
+  - name: city
+    type: string
+    required: false
+    label:
+      en_US: City hint
+      zh_Hans: 城市限定
+    placeholder:
+      en_US: "e.g. Beijing"
+      zh_Hans: 如 北京
+    human_description:
+      en_US: Optional city name to disambiguate the address.
+      zh_Hans: 可选，指定城市以消除歧义。
+    llm_description: Optional city name to disambiguate ambiguous addresses.
+    form: llm
+extra:
+  python:
+    source: tools/geocode_tool.py
+output_schema:
+  results:
+    type: array[json]
+    description: Matched geocodes; each item has address, province, city, district, location (lng,lat), adcode and level (match precision).

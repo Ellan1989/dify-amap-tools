@@ -1,0 +1,44 @@
+author: ellan1989
+created_at: "2026-10-20T00:00:00.000000Z"
+version: 0.0.1
+type: plugin
+name: amap_tools
+repo: https://github.com/Ellan1989/dify-amap-tools
+description:
+  en_US: >-
+    Location tools for China based on the Amap (Gaode) Web Service API:
+    geocoding, reverse geocoding, POI keyword search and city weather.
+  zh_Hans: >-
+    基于高德地图 Web 服务 API 的中国地理位置工具：地理编码、逆地理编码、
+    POI 关键词搜索与城市天气查询。
+icon: icon.svg
+label:
+  en_US: Amap Tools
+  zh_Hans: 高德地图工具
+privacy: PRIVACY.md
+contact: Ellan1989@users.noreply.github.com
+verified: false
+network:
+  domains:
+    - restapi.amap.com
+meta:
+  arch:
+    - amd64
+    - arm64
+  runner:
+    entrypoint: main.py
+    language: python
+    version: "3.12"
+  version: 0.0.1
+  minimum_dify_version: "1.0.0"
+plugins:
+  tools:
+    - provider/amap_tools.yaml
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+tags:
+  - utilities
+  - productivity

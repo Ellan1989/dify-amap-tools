@@ -1,0 +1,58 @@
+identity:
+  name: regeocode
+  author: ellan1989
+  label:
+    en_US: Reverse Geocode
+    zh_Hans: 逆地理编码（坐标转地址）
+description:
+  human:
+    en_US: >-
+      Convert coordinates (longitude, latitude) into a formatted Chinese
+      address with province/city/district breakdown, using the Amap Web
+      Service API.
+    zh_Hans: >-
+      通过高德 Web 服务 API 把经纬度坐标转换为结构化中文地址（省市区信息）。
+  llm: >-
+    Convert coordinates to a Chinese address. Input "longitude,latitude"
+    (GCJ-02, Amap coordinates); returns the formatted address, province,
+    city, district, township and adcode.
+parameters:
+  - name: location
+    type: string
+    required: true
+    label:
+      en_US: Coordinates
+      zh_Hans: 坐标
+    placeholder:
+      en_US: "e.g. 116.481488,39.990464"
+      zh_Hans: 如 116.481488,39.990464
+    human_description:
+      en_US: "Coordinates in the format longitude,latitude (GCJ-02)."
+      zh_Hans: 坐标，格式为「经度,纬度」（GCJ-02 坐标系）。
+    llm_description: Coordinates as "longitude,latitude" in GCJ-02 (Amap) system.
+    form: llm
+extra:
+  python:
+    source: tools/regeocode_tool.py
+output_schema:
+  formatted_address:
+    type: string
+    description: The formatted address string.
+  province:
+    type: string
+    description: Province.
+  city:
+    type: string
+    description: City.
+  district:
+    type: string
+    description: District.
+  township:
+    type: string
+    description: Township / street area.
+  adcode:
+    type: string
+    description: Administrative division code.
+  location:
+    type: string
+    description: The input coordinates, echoed back.

@@ -1,0 +1,10 @@
+[project]
+name = "amap_tools"
+version = "0.0.1"
+description = "Dify tool plugin: China location tools (geocoding, POI search, weather) via the Amap Web Service API"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dify-plugin==0.10.2",
+    "httpx==0.28.1",
+]
