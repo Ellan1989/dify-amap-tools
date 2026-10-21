@@ -40,7 +40,7 @@ WORK="$(mktemp -d)/dify-plugins"
 gh repo clone "${GH_USER}/dify-plugins" "$WORK" -- --depth 5
 cd "$WORK"
 git checkout -b "$BRANCH"
-git remote add upstream https://github.com/langgenius/dify-plugins.git
+git remote add upstream https://github.com/langgenius/dify-plugins.git 2>/dev/null || true
 git fetch upstream main --depth 5 && git merge --ff-only upstream/main 2>/dev/null || true
 mkdir -p "$PLUGIN_DIR_NAME"
 cp "$ROOT/$PKG" "$PLUGIN_DIR_NAME/"

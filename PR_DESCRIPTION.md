@@ -1,9 +1,3 @@
-# PR 标题
-
-feat: add Amap Tools 0.0.1 tool plugin
-
-# PR 正文（按官方模板填写）
-
 # Plugin Submission
 
 ## Plugin information
@@ -83,6 +77,11 @@ the user); Amap's quirk of returning `[]` for empty city/district/tel fields
 is handled defensively.
 
 ## Reviewer notes
+
+- Resubmission of #3427, which was closed because the previous PR body accidentally
+  contained two non-English header lines from a local template file. The package is
+  unchanged; this body is pure English per the submission template (verified locally
+  with check-pr-body.py from dify-marketplace-toolkit).
 
 - No marketplace plugin currently covers the Amap Web Service API, so this
   fills a gap for location tasks in China (a common need for agents serving
