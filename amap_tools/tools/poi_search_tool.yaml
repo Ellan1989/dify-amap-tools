@@ -73,9 +73,13 @@ extra:
   python:
     source: tools/poi_search_tool.py
 output_schema:
-  count:
-    type: string
-    description: Total matches reported by the API.
-  pois:
-    type: array[json]
-    description: Matched POIs; each item has name, category, address, location, city and phone.
+  type: object
+  properties:
+    count:
+      type: string
+      description: Total matches reported by the API.
+    pois:
+      type: array
+      items:
+        type: object
+      description: Matched POIs; each item has name, category, address, location, city and phone.

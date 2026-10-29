@@ -35,24 +35,26 @@ extra:
   python:
     source: tools/regeocode_tool.py
 output_schema:
-  formatted_address:
-    type: string
-    description: The formatted address string.
-  province:
-    type: string
-    description: Province.
-  city:
-    type: string
-    description: City.
-  district:
-    type: string
-    description: District.
-  township:
-    type: string
-    description: Township / street area.
-  adcode:
-    type: string
-    description: Administrative division code.
-  location:
-    type: string
-    description: The input coordinates, echoed back.
+  type: object
+  properties:
+    formatted_address:
+      type: string
+      description: The formatted address string.
+    province:
+      type: string
+      description: Province.
+    city:
+      type: string
+      description: City.
+    district:
+      type: string
+      description: District.
+    township:
+      type: string
+      description: Township / street area.
+    adcode:
+      type: string
+      description: Administrative division code.
+    location:
+      type: string
+      description: The input coordinates, echoed back.

@@ -1,6 +1,6 @@
 [project]
 name = "amap_tools"
-version = "0.0.1"
+version = "0.0.2"
 description = "Dify tool plugin: China location tools (geocoding, POI search, weather) via the Amap Web Service API"
 readme = "README.md"
 requires-python = ">=3.12"

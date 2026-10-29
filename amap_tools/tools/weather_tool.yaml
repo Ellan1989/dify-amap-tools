@@ -35,24 +35,26 @@ extra:
   python:
     source: tools/weather_tool.py
 output_schema:
-  city:
-    type: string
-    description: City name.
-  weather:
-    type: string
-    description: Weather condition, e.g. Sunny / Cloudy / Rain.
-  temperature:
-    type: string
-    description: Temperature in Celsius.
-  winddirection:
-    type: string
-    description: Wind direction.
-  windpower:
-    type: string
-    description: Wind power level.
-  humidity:
-    type: string
-    description: Relative humidity in percent.
-  report_time:
-    type: string
-    description: Time the weather was reported.
+  type: object
+  properties:
+    city:
+      type: string
+      description: City name.
+    weather:
+      type: string
+      description: Weather condition, e.g. Sunny / Cloudy / Rain.
+    temperature:
+      type: string
+      description: Temperature in Celsius.
+    winddirection:
+      type: string
+      description: Wind direction.
+    windpower:
+      type: string
+      description: Wind power level.
+    humidity:
+      type: string
+      description: Relative humidity in percent.
+    report_time:
+      type: string
+      description: Time the weather was reported.

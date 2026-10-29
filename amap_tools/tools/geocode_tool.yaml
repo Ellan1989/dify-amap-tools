@@ -48,6 +48,10 @@ extra:
   python:
     source: tools/geocode_tool.py
 output_schema:
-  results:
-    type: array[json]
-    description: Matched geocodes; each item has address, province, city, district, location (lng,lat), adcode and level (match precision).
+  type: object
+  properties:
+    results:
+      type: array
+      items:
+        type: object
+      description: Matched geocodes; each item has address, province, city, district, location (lng,lat), adcode and level (match precision).

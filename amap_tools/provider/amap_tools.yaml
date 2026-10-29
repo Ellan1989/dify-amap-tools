@@ -35,6 +35,11 @@ credentials_for_provider:
         在 https://lbs.amap.com 注册，创建应用并添加「Web 服务」类型的 key。
         key 以 key 查询参数发送，有免费日配额。
     url: https://lbs.amap.com
+tools:
+  - tools/geocode_tool.yaml
+  - tools/regeocode_tool.yaml
+  - tools/poi_search_tool.yaml
+  - tools/weather_tool.yaml
 extra:
   python:
     source: provider/amap_tools.py
